@@ -31,6 +31,11 @@ export { default as ActivityIndicator } from './components/ActivityIndicator';
 export { default as Banner } from './components/Banner';
 export { default as BottomNavigation } from './components/BottomNavigation/BottomNavigation';
 export { default as Button } from './components/Button/Button';
+export { default as NewButton } from './components/Button/ButtonNew';
+export { ElevatedButton } from './components/Button/ButtonNew';
+export { ContainedButton } from './components/Button/ButtonNew';
+export { TextButton } from './components/Button/ButtonNew';
+export { OutlinedButton } from './components/Button/ButtonNew';
 export { default as Card } from './components/Card/Card';
 export { default as Checkbox } from './components/Checkbox';
 export { default as Chip } from './components/Chip/Chip';
@@ -157,3 +162,5 @@ export type {
   MD3Elevation,
   MD3TypescaleKey,
 } from './types';
+
+export type { PaperTheme, TextButtonTheme } from './types';

@@ -14,6 +14,7 @@ import type {
   MD3Theme,
   MD3AndroidColors,
   NavigationTheme,
+  PaperTheme,
 } from '../types';
 
 export const DefaultTheme = MD3LightTheme;
@@ -32,6 +33,10 @@ export const useInternalTheme = (
   themeOverrides: $DeepPartial<InternalTheme> | undefined
 ) => useAppTheme<InternalTheme>(themeOverrides);
 
+export const useRootPaperTheme = (
+  themeOverrides: $DeepPartial<PaperTheme> | undefined
+) => useAppTheme<PaperTheme>(themeOverrides);
+
 export const withInternalTheme = <Props extends { theme: InternalTheme }, C>(
   WrappedComponent: ComponentType<Props & { theme: InternalTheme }> & C
 ) => withTheme<Props, C>(WrappedComponent);
@@ -45,6 +50,11 @@ export const defaultThemesByVersion = {
     light: MD3LightTheme,
     dark: MD3DarkTheme,
   },
+};
+
+export const defaultPaperTheme = {
+  light: MD3LightTheme,
+  dark: MD3DarkTheme,
 };
 
 export const getTheme = <

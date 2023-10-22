@@ -115,6 +115,8 @@ export type MD3Palette = {};
 
 export type ThemeProp = $DeepPartial<InternalTheme>;
 
+// export type PaperThemeProp = $DeepPartial<PaperThemeBase>;
+
 export type ThemeBase = {
   dark: boolean;
   mode?: Mode;
@@ -123,6 +125,20 @@ export type ThemeBase = {
     scale: number;
     defaultAnimationDuration?: number;
   };
+};
+
+export type PaperThemeBase = {
+  dark: boolean;
+  mode?: Mode;
+  roundness: number;
+  animation: {
+    scale: number;
+    defaultAnimationDuration?: number;
+  };
+  version: 3;
+  isV3: true;
+  colors: MD3Colors;
+  fonts: MD3Typescale;
 };
 
 export type MD3Theme = ThemeBase & {

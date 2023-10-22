@@ -1,15 +1,23 @@
 import * as React from 'react';
 import { Image, StyleSheet, View } from 'react-native';
 
-import { Button, List } from 'react-native-paper';
+import {
+  Button,
+  List,
+  ElevatedButton,
+  ContainedButton,
+  TextButton,
+  OutlinedButton,
+  NewButton,
+} from 'react-native-paper';
 
-import { useExampleTheme } from '..';
+import { useExampleTheme, useExampleNewTheme } from '..';
 import ScreenWrapper from '../ScreenWrapper';
 
 const ButtonExample = () => {
-  const theme = useExampleTheme();
+  const theme = useExampleNewTheme();
 
-  const color = theme.isV3 ? theme.colors.inversePrimary : theme.colors.accent;
+  const color = theme.colors.inversePrimary;
 
   return (
     <ScreenWrapper>
@@ -18,18 +26,37 @@ const ButtonExample = () => {
           <Button onPress={() => {}} style={styles.button}>
             Default
           </Button>
+          <TextButton onPress={() => {}} style={styles.button}>
+            Default
+          </TextButton>
           <Button textColor={color} onPress={() => {}} style={styles.button}>
             Custom
           </Button>
+          <TextButton
+            textColor={color}
+            onPress={() => {}}
+            style={styles.button}
+          >
+            Custom
+          </TextButton>
           <Button disabled onPress={() => {}} style={styles.button}>
             Disabled
           </Button>
+          <TextButton disabled onPress={() => {}} style={styles.button}>
+            Disabled
+          </TextButton>
           <Button icon="camera" onPress={() => {}} style={styles.button}>
             Icon
           </Button>
+          <TextButton icon="camera" onPress={() => {}} style={styles.button}>
+            Icon
+          </TextButton>
           <Button loading onPress={() => {}} style={styles.button}>
             Loading
           </Button>
+          <TextButton loading onPress={() => {}} style={styles.button}>
+            Loading
+          </TextButton>
           <Button
             icon="camera"
             onPress={() => {}}
@@ -38,6 +65,14 @@ const ButtonExample = () => {
           >
             Icon right
           </Button>
+          <TextButton
+            icon="camera"
+            onPress={() => {}}
+            style={styles.button}
+            contentStyle={styles.flexReverse}
+          >
+            Icon right
+          </TextButton>
         </View>
       </List.Section>
       {theme.isV3 && (
@@ -50,6 +85,13 @@ const ButtonExample = () => {
             >
               Default
             </Button>
+            <ContainedButton
+              mode="contained-tonal"
+              onPress={() => {}}
+              style={styles.button}
+            >
+              Default
+            </ContainedButton>
             <Button
               mode="contained-tonal"
               buttonColor={color}
@@ -58,6 +100,14 @@ const ButtonExample = () => {
             >
               Custom
             </Button>
+            <ContainedButton
+              mode="contained-tonal"
+              buttonColor={color}
+              onPress={() => {}}
+              style={styles.button}
+            >
+              Custom
+            </ContainedButton>
             <Button
               mode="contained-tonal"
               disabled
@@ -66,6 +116,14 @@ const ButtonExample = () => {
             >
               Disabled
             </Button>
+            <ContainedButton
+              mode="contained-tonal"
+              disabled
+              onPress={() => {}}
+              style={styles.button}
+            >
+              Disabled
+            </ContainedButton>
             <Button
               mode="contained-tonal"
               icon="camera"
@@ -74,6 +132,14 @@ const ButtonExample = () => {
             >
               Icon
             </Button>
+            <ContainedButton
+              mode="contained-tonal"
+              icon="camera"
+              onPress={() => {}}
+              style={styles.button}
+            >
+              Icon
+            </ContainedButton>
             <Button
               mode="contained-tonal"
               loading
@@ -82,6 +148,14 @@ const ButtonExample = () => {
             >
               Loading
             </Button>
+            <ContainedButton
+              mode="contained-tonal"
+              loading
+              onPress={() => {}}
+              style={styles.button}
+            >
+              Loading
+            </ContainedButton>
             <Button
               mode="contained-tonal"
               icon="camera"
@@ -91,6 +165,15 @@ const ButtonExample = () => {
             >
               Icon right
             </Button>
+            <ContainedButton
+              mode="contained-tonal"
+              icon="camera"
+              onPress={() => {}}
+              style={styles.button}
+              contentStyle={styles.flexReverse}
+            >
+              Icon right
+            </ContainedButton>
           </View>
         </List.Section>
       )}
@@ -99,6 +182,9 @@ const ButtonExample = () => {
           <Button mode="outlined" onPress={() => {}} style={styles.button}>
             Default
           </Button>
+          <OutlinedButton onPress={() => {}} style={styles.button}>
+            Default
+          </OutlinedButton>
           <Button
             mode="outlined"
             textColor={color}
@@ -107,6 +193,13 @@ const ButtonExample = () => {
           >
             Custom
           </Button>
+          <OutlinedButton
+            textColor={color}
+            onPress={() => {}}
+            style={styles.button}
+          >
+            Custom
+          </OutlinedButton>
           <Button
             mode="outlined"
             disabled
@@ -115,6 +208,9 @@ const ButtonExample = () => {
           >
             Disabled
           </Button>
+          <OutlinedButton disabled onPress={() => {}} style={styles.button}>
+            Disabled
+          </OutlinedButton>
           <Button
             mode="outlined"
             icon="camera"
@@ -123,6 +219,13 @@ const ButtonExample = () => {
           >
             Icon
           </Button>
+          <OutlinedButton
+            icon="camera"
+            onPress={() => {}}
+            style={styles.button}
+          >
+            Icon
+          </OutlinedButton>
           <Button
             mode="outlined"
             loading
@@ -131,6 +234,9 @@ const ButtonExample = () => {
           >
             Loading
           </Button>
+          <OutlinedButton loading onPress={() => {}} style={styles.button}>
+            Loading
+          </OutlinedButton>
           <Button
             mode="outlined"
             icon="camera"
@@ -140,6 +246,14 @@ const ButtonExample = () => {
           >
             Icon right
           </Button>
+          <OutlinedButton
+            icon="camera"
+            onPress={() => {}}
+            style={styles.button}
+            contentStyle={styles.flexReverse}
+          >
+            Icon right
+          </OutlinedButton>
         </View>
       </List.Section>
       <List.Section title={`Contained button ${theme.isV3 ? '(filled)' : ''}`}>
@@ -147,6 +261,13 @@ const ButtonExample = () => {
           <Button mode="contained" onPress={() => {}} style={styles.button}>
             Default
           </Button>
+          <ContainedButton
+            mode="contained"
+            onPress={() => {}}
+            style={styles.button}
+          >
+            Default
+          </ContainedButton>
           <Button
             mode="contained"
             buttonColor={color}
@@ -155,6 +276,14 @@ const ButtonExample = () => {
           >
             Custom
           </Button>
+          <ContainedButton
+            mode="contained"
+            buttonColor={color}
+            onPress={() => {}}
+            style={styles.button}
+          >
+            Custom
+          </ContainedButton>
           <Button
             mode="contained"
             disabled
@@ -163,6 +292,14 @@ const ButtonExample = () => {
           >
             Disabled
           </Button>
+          <ContainedButton
+            mode="contained"
+            disabled
+            onPress={() => {}}
+            style={styles.button}
+          >
+            Disabled
+          </ContainedButton>
           <Button
             mode="contained"
             icon="camera"
@@ -171,6 +308,14 @@ const ButtonExample = () => {
           >
             Icon
           </Button>
+          <ContainedButton
+            mode="contained"
+            icon="camera"
+            onPress={() => {}}
+            style={styles.button}
+          >
+            Icon
+          </ContainedButton>
           <Button
             mode="contained"
             loading
@@ -179,6 +324,14 @@ const ButtonExample = () => {
           >
             Loading
           </Button>
+          <ContainedButton
+            mode="contained"
+            loading
+            onPress={() => {}}
+            style={styles.button}
+          >
+            Loading
+          </ContainedButton>
           <Button
             mode="contained"
             icon="camera"
@@ -188,6 +341,15 @@ const ButtonExample = () => {
           >
             Icon right
           </Button>
+          <ContainedButton
+            mode="contained"
+            icon="camera"
+            onPress={() => {}}
+            style={styles.button}
+            contentStyle={styles.flexReverse}
+          >
+            Icon right
+          </ContainedButton>
         </View>
       </List.Section>
       {theme.isV3 && (
@@ -196,6 +358,9 @@ const ButtonExample = () => {
             <Button mode="elevated" onPress={() => {}} style={styles.button}>
               Default
             </Button>
+            <ElevatedButton onPress={() => {}} style={styles.button}>
+              Default
+            </ElevatedButton>
             <Button
               mode="elevated"
               buttonColor={color}
@@ -204,6 +369,13 @@ const ButtonExample = () => {
             >
               Custom
             </Button>
+            <ElevatedButton
+              buttonColor={color}
+              onPress={() => {}}
+              style={styles.button}
+            >
+              Custom
+            </ElevatedButton>
             <Button
               mode="elevated"
               disabled
@@ -212,6 +384,9 @@ const ButtonExample = () => {
             >
               Disabled
             </Button>
+            <ElevatedButton disabled onPress={() => {}} style={styles.button}>
+              Disabled
+            </ElevatedButton>
             <Button
               mode="elevated"
               icon="camera"
@@ -220,6 +395,13 @@ const ButtonExample = () => {
             >
               Icon
             </Button>
+            <ElevatedButton
+              icon="camera"
+              onPress={() => {}}
+              style={styles.button}
+            >
+              Icon
+            </ElevatedButton>
             <Button
               mode="elevated"
               loading
@@ -228,6 +410,9 @@ const ButtonExample = () => {
             >
               Loading
             </Button>
+            <ElevatedButton loading onPress={() => {}} style={styles.button}>
+              Loading
+            </ElevatedButton>
             <Button
               mode="elevated"
               icon="camera"
@@ -237,6 +422,14 @@ const ButtonExample = () => {
             >
               Icon right
             </Button>
+            <ElevatedButton
+              icon="camera"
+              onPress={() => {}}
+              style={styles.button}
+              contentStyle={styles.flexReverse}
+            >
+              Icon right
+            </ElevatedButton>
           </View>
         </List.Section>
       )}
@@ -252,6 +445,15 @@ const ButtonExample = () => {
           >
             Remote image
           </Button>
+          <OutlinedButton
+            icon={{
+              uri: 'https://avatars0.githubusercontent.com/u/17571969?v=3&s=400',
+            }}
+            onPress={() => {}}
+            style={styles.button}
+          >
+            Remote image
+          </OutlinedButton>
           <Button
             mode="outlined"
             icon={require('../../assets/images/favorite.png')}
@@ -260,6 +462,13 @@ const ButtonExample = () => {
           >
             Required asset
           </Button>
+          <OutlinedButton
+            icon={require('../../assets/images/favorite.png')}
+            onPress={() => {}}
+            style={styles.button}
+          >
+            Required asset
+          </OutlinedButton>
           <Button
             mode="outlined"
             icon={({ size }) => (
@@ -274,6 +483,19 @@ const ButtonExample = () => {
           >
             Custom component
           </Button>
+          <OutlinedButton
+            icon={({ size }) => (
+              <Image
+                source={require('../../assets/images/chameleon.jpg')}
+                style={{ width: size, height: size, borderRadius: size / 2 }}
+                accessibilityIgnoresInvertColors
+              />
+            )}
+            onPress={() => {}}
+            style={styles.button}
+          >
+            Custom component
+          </OutlinedButton>
           <Button
             icon="heart"
             mode="outlined"
@@ -283,6 +505,14 @@ const ButtonExample = () => {
           >
             Custom Font
           </Button>
+          <OutlinedButton
+            icon="heart"
+            onPress={() => {}}
+            style={styles.button}
+            labelStyle={[styles.fontStyles, theme.isV3 && styles.md3FontStyles]}
+          >
+            Custom Font
+          </OutlinedButton>
         </View>
 
         <View style={styles.row}>
@@ -293,6 +523,13 @@ const ButtonExample = () => {
           >
             flex-grow: 1
           </Button>
+          <ContainedButton
+            mode="contained"
+            onPress={() => {}}
+            style={styles.flexGrow1Button}
+          >
+            flex-grow: 1
+          </ContainedButton>
         </View>
         <View style={styles.row}>
           <Button
@@ -302,6 +539,15 @@ const ButtonExample = () => {
           >
             width: 100%
           </Button>
+        </View>
+        <View style={styles.row}>
+          <ContainedButton
+            mode="contained"
+            onPress={() => {}}
+            style={styles.width100PercentButton}
+          >
+            width: 100%
+          </ContainedButton>
         </View>
       </List.Section>
       <List.Section title="Compact">
@@ -329,7 +575,57 @@ const ButtonExample = () => {
             );
           })}
         </View>
+        <View style={styles.divider} />
+        <View style={styles.row}>
+          {(
+            [
+              'text',
+              'outlined',
+              'contained',
+              'elevated',
+              'contained-tonal',
+            ] as const
+          ).map((mode) => {
+            return (
+              <NewButton
+                key={mode}
+                mode={mode}
+                compact
+                onPress={() => {}}
+                style={styles.button}
+                icon="camera"
+              >
+                Compact {mode}
+              </NewButton>
+            );
+          })}
+        </View>
       </List.Section>
+      <List.Section title="Specific Theme">
+        <View style={styles.row}>
+          <ElevatedButton
+            onPress={() => {}}
+            style={styles.button}
+            theme={{
+              elevatedButtonTheme: { initialElevation: 6, endElevation: 12 },
+            }}
+            icon="camera"
+          >
+            Elevated Theme
+          </ElevatedButton>
+          <TextButton
+            onPress={() => {}}
+            style={styles.button}
+            theme={{
+              textButtonTheme: { textColor: { base: 'red', disabled: 'gray' } },
+            }}
+            icon="camera"
+          >
+            Text Theme
+          </TextButton>
+        </View>
+      </List.Section>
+      <View style={styles.footer} />
     </ScreenWrapper>
   );
 };
@@ -342,6 +638,12 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     paddingHorizontal: 12,
     alignItems: 'center',
+  },
+  // eslint-disable-next-line react-native/no-color-literals
+  divider: {
+    width: '100%',
+    height: 1,
+    backgroundColor: '#ccc',
   },
   button: {
     margin: 4,
@@ -363,6 +665,9 @@ const styles = StyleSheet.create({
   width100PercentButton: {
     width: '100%',
     marginTop: 10,
+  },
+  footer: {
+    height: 100,
   },
 });
 

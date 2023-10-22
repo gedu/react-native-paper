@@ -8,8 +8,9 @@ import {
 
 import MaterialCommunityIcon from '../components/MaterialCommunityIcon';
 import PortalHost from '../components/Portal/PortalHost';
-import type { ThemeProp } from '../types';
+import type { PaperTheme, ThemeProp } from '../types';
 import { addEventListener } from '../utils/addEventListener';
+import { useCreateThemeData } from './material/themeData';
 import SafeAreaProviderCompat from './SafeAreaProviderCompat';
 import { Provider as SettingsProvider, Settings } from './settings';
 import { defaultThemesByVersion, ThemeProvider } from './theming';
@@ -20,7 +21,34 @@ export type Props = {
   settings?: Settings;
 };
 
-const PaperProvider = (props: Props) => {
+export type PaperProps = {
+  children: React.ReactNode;
+  theme?: PaperTheme;
+  settings?: Settings;
+};
+
+const PaperProvider = ({ children, theme, settings }: PaperProps) => {
+  const themeData = useCreateThemeData(theme);
+  // console.log('PAPER PROVIDER - themeData: ', themeData);
+  return (
+    <SafeAreaProviderCompat>
+      <PortalHost>
+        <SettingsProvider
+          value={{
+            icon: MaterialCommunityIcon,
+            rippleEffectEnabled: true,
+            ...settings,
+          }}
+        >
+          {/* @ts-expect-error check @callstack/react-theme-provider's children prop */}
+          <ThemeProvider theme={themeData}>{children}</ThemeProvider>
+        </SettingsProvider>
+      </PortalHost>
+    </SafeAreaProviderCompat>
+  );
+};
+
+const PaperProviderOld = (props: Props) => {
   const isOnlyVersionInTheme =
     props.theme && Object.keys(props.theme).length === 1 && props.theme.version;
 

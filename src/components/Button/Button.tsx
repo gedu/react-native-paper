@@ -370,7 +370,7 @@ const Button = ({
             style={[
               styles.label,
               !isV3 && styles.md2Label,
-              isV3 &&
+              isV3 && //need to add this into RawBaseButton
                 (isMode('text')
                   ? icon || loading
                     ? styles.md3LabelTextAddons

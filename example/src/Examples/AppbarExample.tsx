@@ -12,6 +12,7 @@ import {
   Switch,
   Text,
 } from 'react-native-paper';
+import type { PaperTheme } from 'react-native-paper';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { useExampleTheme } from '..';
@@ -20,6 +21,7 @@ import ScreenWrapper from '../ScreenWrapper';
 
 type Props = {
   navigation: StackNavigationProp<{}>;
+  paper: PaperTheme;
 };
 
 type AppbarModes = 'small' | 'medium' | 'large' | 'center-aligned';

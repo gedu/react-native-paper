@@ -17,13 +17,14 @@ import {
   PaperProvider,
   MD3DarkTheme,
   MD3LightTheme,
-  MD2DarkTheme,
-  MD2LightTheme,
   MD2Theme,
   MD3Theme,
   useTheme,
   adaptNavigationTheme,
   configureFonts,
+  PaperTheme,
+  PaperLightTheme,
+  PaperDarkTheme,
 } from 'react-native-paper';
 import { SafeAreaInsetsContext } from 'react-native-safe-area-context';
 
@@ -37,6 +38,10 @@ const PREFERENCES_KEY = 'APP_PREFERENCES';
 export const PreferencesContext = React.createContext<any>(null);
 
 export const useExampleTheme = () => useTheme<MD2Theme | MD3Theme>();
+export const useExampleNewTheme = () =>
+  useTheme<PaperTheme>({
+    elevatedButtonTheme: { initialElevation: 16, activeElevation: 6 },
+  });
 
 const DrawerContent = () => {
   return (
@@ -45,7 +50,6 @@ const DrawerContent = () => {
         <DrawerItems
           toggleTheme={preferences.toggleTheme}
           toggleRTL={preferences.toggleRtl}
-          toggleThemeVersion={preferences.toggleThemeVersion}
           toggleCollapsed={preferences.toggleCollapsed}
           toggleCustomFont={preferences.toggleCustomFont}
           toggleRippleEffect={preferences.toggleRippleEffect}
@@ -75,7 +79,6 @@ export default function PaperExample() {
   >();
 
   const [isDarkMode, setIsDarkMode] = React.useState(false);
-  const [themeVersion, setThemeVersion] = React.useState<2 | 3>(3);
   const [rtl, setRtl] = React.useState<boolean>(
     I18nManager.getConstants().isRTL
   );
@@ -84,17 +87,10 @@ export default function PaperExample() {
   const [rippleEffectEnabled, setRippleEffectEnabled] = React.useState(true);
 
   const themeMode = isDarkMode ? 'dark' : 'light';
-
   const theme = {
-    2: {
-      light: MD2LightTheme,
-      dark: MD2DarkTheme,
-    },
-    3: {
-      light: MD3LightTheme,
-      dark: MD3DarkTheme,
-    },
-  }[themeVersion][themeMode];
+    light: PaperLightTheme,
+    dark: PaperDarkTheme,
+  }[themeMode];
 
   React.useEffect(() => {
     const restoreState = async () => {
@@ -168,12 +164,6 @@ export default function PaperExample() {
       toggleCollapsed: () => setCollapsed(!collapsed),
       toggleCustomFont: () => setCustomFont(!customFontLoaded),
       toggleRippleEffect: () => setRippleEffectEnabled(!rippleEffectEnabled),
-      toggleThemeVersion: () => {
-        setCustomFont(false);
-        setCollapsed(false);
-        setThemeVersion((oldThemeVersion) => (oldThemeVersion === 2 ? 3 : 2));
-        setRippleEffectEnabled(true);
-      },
       rippleEffectEnabled,
       customFontLoaded,
       collapsed,

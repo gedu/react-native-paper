@@ -20,7 +20,6 @@ import { PreferencesContext, useExampleTheme } from './';
 type Props = {
   toggleTheme: () => void;
   toggleRTL: () => void;
-  toggleThemeVersion: () => void;
   toggleCollapsed: () => void;
   toggleCustomFont: () => void;
   toggleRippleEffect: () => void;
@@ -102,7 +101,6 @@ const DrawerCollapsedItemsData = [
 const DrawerItems = ({
   toggleTheme,
   toggleRTL,
-  toggleThemeVersion,
   toggleCollapsed,
   toggleCustomFont,
   toggleRippleEffect,
@@ -194,15 +192,6 @@ const DrawerItems = ({
                 <Text variant="labelLarge">RTL</Text>
                 <View pointerEvents="none">
                   <Switch value={isRTL} />
-                </View>
-              </View>
-            </TouchableRipple>
-
-            <TouchableRipple onPress={toggleThemeVersion}>
-              <View style={[styles.preference, isV3 && styles.v3Preference]}>
-                <Text variant="labelLarge">MD 2</Text>
-                <View pointerEvents="none">
-                  <Switch value={!isV3} />
                 </View>
               </View>
             </TouchableRipple>
