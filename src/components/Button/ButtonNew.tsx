@@ -176,6 +176,7 @@ const Button = ({ mode = 'text', ...rest }: Props) => {
 const ElevatedButton = ({
   theme: themeOverrides,
   children,
+  testID = 'elevated-button',
   ...rest
 }: ElevatedButtonProps) => {
   const theme = useElevatedButtonTheme(themeOverrides); // this theme must return {PaperTheme, ElevatedButtonTheme}
@@ -189,7 +190,7 @@ const ElevatedButton = ({
       {...rest}
       theme={theme}
       buttonCommand={elevatedButtonCommand}
-      testID="elevated-button"
+      testID={testID}
     >
       {children}
     </ColorBaseButton>
@@ -200,6 +201,7 @@ const ContainedButton = ({
   theme: themeOverrides,
   children,
   mode = 'contained',
+  testID = `${mode}-contained-button`,
   ...rest
 }: ContainedButtonProps) => {
   const theme = useContainedButtonTheme(themeOverrides, mode);
@@ -214,7 +216,7 @@ const ContainedButton = ({
       theme={theme}
       mode={mode}
       buttonCommand={containedButtonCommand}
-      testID={`${mode}-button`}
+      testID={testID}
     >
       {children}
     </ColorBaseButton>
@@ -224,6 +226,7 @@ const ContainedButton = ({
 const TextButton = ({
   theme: themeOverrides,
   children,
+  testID = 'text-button',
   ...rest
 }: TextButtonProps) => {
   const theme = useRawButtonTheme(themeOverrides, 'text');
@@ -235,7 +238,7 @@ const TextButton = ({
       mode="text"
       theme={theme}
       buttonCommand={textButtonCommand}
-      testID="text-button"
+      testID={testID}
     >
       {children}
     </RawBaseButton>
