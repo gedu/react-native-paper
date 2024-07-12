@@ -193,7 +193,10 @@ function DrawerItems() {
             {!isWeb && (
               <TouchableRipple onPress={_handleToggleRTL}>
                 <View style={[styles.preference, isV3 && styles.v3Preference]}>
-                  <Text variant="labelLarge">RTL</Text>
+                  <View>
+                    <Text variant="labelLarge">RTL</Text>
+                    <Text variant="labelSmall">Refresh after switch it</Text>
+                  </View>
                   <View pointerEvents="none">
                     <Switch value={isRTL} />
                   </View>
